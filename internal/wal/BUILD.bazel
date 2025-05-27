@@ -1,0 +1,30 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "wal",
+    srcs = ["wal.go"],
+    importpath = "github.com/shohagrana006/simplewal/internal/wal",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//proto:proto_go_proto",
+        "@org_golang_google_protobuf//proto",
+    ],
+)
+
+go_test(
+    name = "wal_test",
+    srcs = ["wal_test.go"],
+    embed = [":wal"],
+    deps = [
+        "//proto:proto_go_proto",
+        "@com_github_stretchr_testify//require",
+        "@org_golang_google_protobuf//proto",
+    ],
+)
+
+go_test(
+    name = "lib_test",
+    srcs = ["wal_test.go"],
+    embed = [":wal"],
+    deps = ["@com_github_stretchr_testify//require:go_default_library"],
+)

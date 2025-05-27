@@ -1,0 +1,15 @@
+load("@rules_go//proto:def.bzl", "go_proto_library")
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+proto_library(
+    name = "proto_proto",
+    srcs = ["wal.proto"],
+    visibility = ["//visibility:public"],
+)
+
+go_proto_library(
+    name = "proto_go_proto",
+    importpath = "github.com/shohagrana006/simplewal/proto",
+    proto = ":proto_proto",
+    visibility = ["//visibility:public"],
+)
