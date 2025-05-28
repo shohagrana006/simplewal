@@ -3,5 +3,6 @@ syntax = "proto3";
 package proto;
 
 message Entry{
-  string name = 1;
+  string key = 1;
+  string value = 2;
 }

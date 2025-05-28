@@ -5,7 +5,10 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/shohagrana006/simplewal/cmd/simplewal",
     visibility = ["//visibility:private"],
-    deps = ["//internal/wal"],
+    deps = [
+        "//internal/wal",
+        "//proto:proto_go_proto",
+    ],
 )
 
 go_binary(
